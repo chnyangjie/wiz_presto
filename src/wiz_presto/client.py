@@ -28,3 +28,8 @@ class PrestoClient(object):
     def query_all(self, sql):
         self._cursor.execute(sql)
         return self._cursor.fetchall()
+
+    def close(self):
+        self._cursor.close()
+        self._conn.close()
+
